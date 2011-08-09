@@ -91,7 +91,7 @@ class Dispatcher {
 			try {
 				
 				// Perform Request
-				call_user_func(array($object, $function), $args ?: array());
+				call_user_func_array(array($object, $function), $args ?: array());
 			}
 			catch(PassRequestException $e) {
 			
