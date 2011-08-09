@@ -8,5 +8,18 @@ namespace Core\System\Database;
  */
 
 abstract class DatabaseEngine {
+	
+	/* Holds Database Engine Instance */
+
+	protected static $_instance;
+
+	/*	Retreives an Instance of the Database
+	 *	engine called.
+	 *
+	 *	@returns object PDO Object
+	 *	@throws ConnectionFailureException
+	 */
+
+	abstract public static function getInstance();
 
 }
