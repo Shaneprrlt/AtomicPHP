@@ -1,12 +1,12 @@
 <?php
 
-namespace Core\System\Controllers;
+namespace HTTP\src\Cookies;
 
 /*
  *	Created for AtomicPHP Framework
  *	Copyright 2011 Shane Perreault All Rights Reserved
  */
 
-abstract class Controller {
+class Cookies {
 
 }
