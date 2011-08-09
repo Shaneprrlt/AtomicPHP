@@ -10,7 +10,6 @@ namespace Core\System\Database\Engines;
 use Core\System\Config\Config;
 use Core\System\Database\DatabaseEngine;
 use Core\System\Database\Exceptions\ConnectionFailureException;
-use Core\System\Database\Exceptions\QueryFailureException;
 
 class MySQL extends DatabaseEngine {
 
