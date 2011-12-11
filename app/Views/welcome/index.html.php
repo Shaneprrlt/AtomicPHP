@@ -1,0 +1,1 @@
+<p>Welcome to the AtomicPHP Framework.</p>
