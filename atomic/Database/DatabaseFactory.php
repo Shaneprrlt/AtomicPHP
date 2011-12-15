@@ -20,15 +20,12 @@ class DatabaseFactory {
 	 */
 
 	public static function factory() {
-	
 		// Find Engine Classname
 		$engine_namespace = 'Atomic\Database\Engines\\';
 		$engine = Config::getRequiredVal('db', 'engine');
 		$class_name = $engine_namespace . $engine;
-		
 		// Check if Class Exists and Load it
 		if(@class_exists($class_name)) {
-
 			return $class_name::getInstance();
 		}
 		else {

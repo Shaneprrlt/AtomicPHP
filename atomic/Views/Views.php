@@ -30,10 +30,8 @@ class Views {
 		// Find Path to View File
 		$_file_path = Config::getBasePath() . "/app/Views/layout/"
 			. $_view . static::$_default_extension;
-		
 		// Load View File using file_get_contents
 		$_file_contents = file_get_contents($_file_path);
-		
 		// Add to Component Array
 		static::$_components[$_replace_key] = $_file_contents;
 	}
@@ -53,41 +51,30 @@ class Views {
 		// Find Path to Layout File
 		$_layout_path = Config::getBasePath() . "/app/Views/layouts/"
 			. "application" . static::$_default_extension;
-			
 		// Find Path to View File
 		$_view_path = Config::getBasePath() . "/app/Views/"
 			. $controller . "/" . $view . static::$_default_extension;
-			
 		// Get Contents of Layout File using file_get_contents
 		$_layout_contents = file_get_contents($_layout_path);
-		
 		// Get Contents of View File using file_get_contents
 		$_view_contents = file_get_contents($_view_path);
-		
 		// Merge Layout File and View File
 		$_tmp_content = str_replace(static::$_default_replace_key,
 			$_view_contents, $_layout_contents);
-			
 		// Add Components to View
 		foreach(static::$_components as $_replace_key => $_content) {
 			$_tmp_content = str_replace($_replace_key, $_content, $_tmp_content);
 		}
-		
 		// Create New Temporary File Path
 		$_tmp_path = Config::getBasePath() . "/tmp/" . microtime(true) . ".php";
-		
 		// Write the New File
-		file_put_contents($_tmp_path, $_tmp_content);
-		
+		file_put_contents($_tmp_path, $_tmp_content);	
 		// Extract Data
 		extract($data);
-		
 		// Include File
 		include($_tmp_path);
-		
 		// Delete Temporary File
 		unlink($_tmp_path);
-		
 		// Empty out Components
 		static::$_components = array();
 	}

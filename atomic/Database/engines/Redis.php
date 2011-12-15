@@ -14,7 +14,7 @@ use Atomic\Exceptions\RedisCommandExecutionException;
 
 class Redis extends DatabaseEngine {
 
-	var $connection;
+	protected $connection;
 
 	/*	Retrieves an instance of the redis
 	 *	server based on configuration data
@@ -34,7 +34,6 @@ class Redis extends DatabaseEngine {
 	 */
 
 	public function __construct() {
-
 		// Open New Redis Connection
 		$this->connection = @fsockopen(
 			Config::getRequiredVal('redis', 'host'), 
@@ -43,7 +42,8 @@ class Redis extends DatabaseEngine {
 
 		// Test Connection
 		if(! $this->connection) {
-			throw new ConnectionFailureException("Could not connect to Redis");
+			throw new ConnectionFailureException(
+				"Could not connect to Redis");
 		}
 	}
 
@@ -63,15 +63,14 @@ class Redis extends DatabaseEngine {
 	 */
 
 	public function command($command) {
-
 		try {
 			// Send command to Redis Server
 			fwrite($this->connection, $command);
 		}
 		catch(RedisCommandExecutionException $e) {
-			throw new RedisCommandExecutionException($e->getMessage());
+			throw new RedisCommandExecutionException(
+				$e->getMessage());
 		}
-
 		// Return Redis reply
 		return $this->getRedisReply();
 	}

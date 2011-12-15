@@ -21,5 +21,4 @@ abstract class DatabaseEngine {
 	 */
 
 	abstract public static function getInstance();
-
 }

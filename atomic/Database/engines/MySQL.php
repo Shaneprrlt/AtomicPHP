@@ -21,17 +21,14 @@ class MySQL extends DatabaseEngine {
 	 */
 
 	public static function getInstance() {
-
 		// Check if a Database Instance Doesn't Already Exist
 		if(! static::$_instance) {
-
 			// Get Connection Information from Configuration
 			$host = Config::getRequiredVal('db', 'host');
 			$port = Config::getRequiredVal('db', 'port');
 			$user = Config::getRequiredVal('db', 'user');
 			$pass = Config::getRequiredVal('db', 'pass');
 			$name = Config::getRequiredVal('db', 'name');
-
 			try {
 				// Open a new Connection
 				$dsn = "mysql:host={$host};port={$port};dbname={$dbname}";

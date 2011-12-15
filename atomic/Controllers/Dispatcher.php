@@ -155,7 +155,7 @@ class Dispatcher {
 			$obj->setParameters($parameters);
 			try {
 				call_user_func_array(
-					array($class, $function), array());
+					array($obj, $function), array());
 			}
 			catch(PassRequestException $e) {
 				throw new PassRequestException(

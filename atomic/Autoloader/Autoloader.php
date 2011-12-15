@@ -37,7 +37,6 @@ class Autoloader {
 		if(static::$_registered) {
 			return false;
 		}
-		
 		// Register the Autloader
 		static::$_registered = spl_autoload_register(
 			"\Atomic\Autoloader\Autoloader::loadClass");

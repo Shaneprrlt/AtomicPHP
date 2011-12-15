@@ -85,7 +85,6 @@ class Config {
 	 	while($base_path{strlen($base_path) - 1} == "/") {
 	 		$base_path = substr($base_path, 0, strlen($base_path) - 1);
 	 	}
-	 	
 	 	// Set Base Path
 	 	static::$_base_path = $base_path;
 	 }

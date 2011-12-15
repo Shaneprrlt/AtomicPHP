@@ -21,7 +21,6 @@ class SQLite extends DatabaseEngine {
 	 */
 
 	public static function getInstance() {
-
 		// Check if a Database Instance Doesn't Already Exist
 		if(! static::$_instance) {
 			$sqlite_file = Config::getRequiredVal('db', 'sqlite_file');
@@ -30,7 +29,8 @@ class SQLite extends DatabaseEngine {
 				static::$_instance = new PDO($dsn, null, null);
 			}
 			catch(PDOException $e) {
-				throw new ConnectionFailureException($e->getMessage());
+				throw new ConnectionFailureException(
+					$e->getMessage());
 			}
 		}
 		return static::$_instance;
