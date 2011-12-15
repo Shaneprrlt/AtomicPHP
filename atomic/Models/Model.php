@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomic\Views;
+namespace Atomic\Models;
 
 /*
  *	Created for AtomicPHP Framework
