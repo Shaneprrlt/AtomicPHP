@@ -50,6 +50,6 @@ class ShutdownHandler {
 		static::$_registered
 			= register_shutdown_function(function() {
 			static::shutdownAtomic();
-		})
+		});
 	}
 }
