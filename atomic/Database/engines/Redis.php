@@ -23,7 +23,7 @@ class Redis extends DatabaseEngine {
 	 */
 
 	public static function getInstance() {
-		return new Redis();
+		return new static();
 	}
 
 	/*	Opens new Redis Server Connection and

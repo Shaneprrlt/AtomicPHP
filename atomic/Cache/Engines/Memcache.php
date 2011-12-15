@@ -20,7 +20,7 @@ class Memcache implements CacheEngine {
 
 		try {
 
-			$mc = new Memcache();
+			$mc = new static();
 			$host = Config::getVal('cache', 'memcache_host') ?: 'localhost';
 			$port = Config::getVal('cache', 'memcache_port') ?: '11211';
 			$mc->addServer($host, $port);
