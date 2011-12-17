@@ -9,6 +9,7 @@ namespace App\Controllers;
  
 use Atomic\Controllers\Controller;
 use Atomic\Views\Views;
+use Atomic\Utilities\FlashData;
 use App\Models\Post;
 
 class Welcome extends Controller {

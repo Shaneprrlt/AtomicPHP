@@ -33,8 +33,7 @@ class ShutdownHandler {
 		}
 		
 		// Close any open file pointers in the log file
-		$log_path = Config::getRequiredVal("app", "log_file_path") ?:
-			Config::getBasePath() . "/app/logs/errors.log";
+		$log_path = Config::getBasePath() . "/app/logs/errors.log";
 		if(is_file($log_path) && file_exists($log_path)) {
 			$fh = fopen($log_path);
 			flock($fh, LOCK_UN);
@@ -49,7 +48,7 @@ class ShutdownHandler {
 	public static function registerShutdown() {
 		static::$_registered
 			= register_shutdown_function(function() {
-			static::shutdownAtomic();
+			ShutdownHandler::shutdownAtomic();
 		});
 	}
 }
